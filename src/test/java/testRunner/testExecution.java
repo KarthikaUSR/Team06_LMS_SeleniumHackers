@@ -1,23 +1,23 @@
-package testRunner;
+package testRunner; 
 import org.junit.runner.RunWith;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-public class testExecution {
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+
 	
 	
 	@RunWith(Cucumber.class)
 	@CucumberOptions(
 			features = {"src/test/resources/featureFiles"},
-			glue = {"stepDefinitions","appHooks"},
+			glue = {"appHooks","stepDefinition"},
 			plugin = {"pretty"
 			}
 			
 			)
 
-	public class mytestrunner 
+	public class testExecution
 	{
 
 	}
 
-}
+
