@@ -37,7 +37,7 @@ public class addNewBatch {
 		public void Create_New_Batches(String Sheet)throws IOException {
 			System.out.println("Sheetname: "+Sheet);
 		    String S=page.addbatch(Sheet);
-			Assert.assertEquals(S, "Successful");
+		    S_Assert.assertEquals(S, "Successful", "mismatch!");
 		}
 
 

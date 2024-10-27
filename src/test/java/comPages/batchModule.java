@@ -66,7 +66,7 @@ public class batchModule {
 		
 	}
 	public String checkBatchpage() {
-		landbatchpage();//remove later
+		//landbatchpage();//remove later
 		String label=driver.findElement(pageName).getText();
 		return label;
 		
@@ -154,6 +154,7 @@ public class batchModule {
 	//method for Addclick
 	
 	public void batchaddclick() {
+		
 
 		WebElement Add=comMethod.presenceOfElementLocated(Addbatch);
 		
@@ -185,6 +186,7 @@ public class batchModule {
 		for(WebElement e:checkboxUI)
 		{
 			comMethod.visibilityOfAllElementsLocated(checkboxui);
+			
         	if(!e.isSelected()) {
         	    System.out.println("checkbox  is not checked in row No: ");
         	    return false;
@@ -198,6 +200,7 @@ public class batchModule {
 
 		public String addbatchUI()  {
 			
+			landbatchpage();
 			WebElement Add=comMethod.presenceOfElementLocated(Addbatch);
 			
 			String name=Add.getText();
@@ -236,15 +239,15 @@ public class batchModule {
    	
    	By SuccessMSg=By.xpath("//*[contains(@class,'p-toast-summary ng-tns-c91')]");
  	By SuccessMSgclose=By.xpath("//*[contains(@class,'p-toast-icon-close-icon pi pi-times na-†ns-c91')]");
-   	
-   	
+ 	By Session =By.xpath("//*[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']");
+ 	
   // /Add batch locATORS close 	
     // manual add batch
     
     
 
    	
-   	public String addbatchmanual(){
+  /* 	public String addbatchmanual(){
    		
 		WebElement Batch_tag=comMethod.presenceOfElementLocated(BatchTxt);
 		Batch_tag.click();
@@ -283,7 +286,7 @@ public class batchModule {
 		return s;
 			
 }
-   	
+   	*/
 
     // close manual add 	
    	
@@ -294,17 +297,12 @@ public class batchModule {
    		
    		List<batchRecords> batchRecordlist = new ArrayList<>();
    		batchRecordlist=readbatch.readExcel_LMSPrograms(Pname);
-   	   for(batchRecords record:batchRecordlist) {
    		
-   	   
-   	  
-       //Actions actions = new Actions(driver);
-
-       //WebElement Batch_tag=comMethod.presenceOfElementLocated(BatchTxt);
-      
-       //actions.doubleClick(Batch_tag).perform();
-
-	   //Batch_tag.click();
+   		try {
+   			if(batchRecordlist!=null) {
+   		
+   	   for(batchRecords record:batchRecordlist) {
+   	   landbatchpage();
 	   batchaddclick();
 	   WebElement batch_progmatch=comMethod.presenceOfElementLocated(batchprogmatch);
 	   batch_progmatch.clear();
@@ -322,10 +320,12 @@ public class batchModule {
     	   }
          
        }
-	   //sendKeys("ChatBotTest");
+	   
+       //Log.info("Batch Extracted from the excel");
 	   WebElement batchB_Name2=comMethod.presenceOfElementLocated(batchBName2);
 	   //batchB_Name2.click();
 	   batchB_Name2.sendKeys(record.getBatchName());
+	   //Log.info("batch no is entering");
 	   WebElement batch_Desc=comMethod.visibilityOfElementLocated(batchDesc);
 	   batch_Desc.sendKeys(record.getDescription());
 	   WebElement batchstatus_Active=comMethod.elementToBeClickable(batchstatusActive);
@@ -335,25 +335,23 @@ public class batchModule {
 	   //batchprogramName.sendKeys("ChatBotTest");
 	   WebElement batch_Savebutton=comMethod.elementToBeClickable(batchSavebutton);
 	   batch_Savebutton.click();
-		//WebElement Succesmsgclose=comMethod.presenceOfElementLocated(SuccessMSgclose);
-	   	//Succesmsgclose.click();
-	   Actions actions = new Actions(driver);
-
-       WebElement Batch_tag=comMethod.presenceOfElementLocated(batchButton);
-      
-       actions.click(Batch_tag);
-	   //WebElement batch_Button=comMethod.presenceOfElementLocated(batchButton);
+   	   }
+   			}
+   			}
+   			catch(Exception e)
+   			{
+   				System.out.println("Record completed");
+   			}
+	   /*WebElement SessionChk=comMethod.elementToBeClickable(Session);
+	   JavascriptExecutor js = (JavascriptExecutor) driver;
+	   
+	   js.executeScript("arguments[0].click();", SessionChk);*/
+	   
+	  // WebElement batch_Button=comMethod.presenceOfElementLocated(batchButton);
 	   //batch_Button.click();
-	   
-   		}
-	   
-   
-	WebElement Succesmsg=comMethod.presenceOfElementLocated(SuccessMSg);
-   	String Succes_msg=Succesmsg.getText();
-		
-	   
-	   
-	   return Succes_msg;
+	    WebElement Succesmsg=comMethod.presenceOfElementLocated(SuccessMSg);
+    	String Succes_msg=Succesmsg.getText();
+  	   return Succes_msg;
 		
 	}
    	

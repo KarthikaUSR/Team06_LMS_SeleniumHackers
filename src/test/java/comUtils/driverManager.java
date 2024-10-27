@@ -16,6 +16,7 @@ public class driverManager {
 	    private static WebDriver driver;
 	    private static configReader cr;
 	    private static Properties prop;
+		
 
 
 	    // Private constructor to prevent instantiation
@@ -54,7 +55,7 @@ public class driverManager {
 	        System.out.println("LMS Application Logged in...");
 	    }
 
-	    // Method to quit the driver (call at the end of the test run)
+	     //Method to quit the driver (call at the end of the test run)
 	    public static void quitDriver() {
 	        if (driver != null) {
 	            driver.quit();
