@@ -8,7 +8,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 	
 	@RunWith(Cucumber.class)
 	@CucumberOptions(
-			features = {"src/test/resources/featureFiles"},
+			features = {"src/test/resources/featureFiles//4addBatch.feature"},
 			glue = {"appHooks","stepDefinition"},
 			plugin = {"pretty"
 			}

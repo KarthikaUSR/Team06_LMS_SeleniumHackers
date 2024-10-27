@@ -1,6 +1,7 @@
 package comUtils;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,23 @@ public class commonFunctions {
     {
     	
    	 return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));	
+
+    }
+
+// Wait for element to be invisibility in element locator
+  public boolean invisibilityOfElementLocated(By locator)
+  {
+		
+		 return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+					
+
+	}
+
+ // Wait for element to be visibility in element locator
+    public List<WebElement> visibilityOfAllElementsLocated(By locator)
+    {
+    	
+   	 return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));	
 
     }
     
@@ -57,6 +75,9 @@ public class commonFunctions {
     // Wait for element to be present in the DOM
     public WebElement presenceOfElementLocated(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+    public List<WebElement> presenceOfElementsLocated(By locator) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
     //get URL
     public String currentUrl()
