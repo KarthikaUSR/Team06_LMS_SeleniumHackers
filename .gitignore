@@ -1,6 +1,7 @@
 target/
 test-output/
 logs/
+allure-results/
 .classpath
 .project
 .settings/
