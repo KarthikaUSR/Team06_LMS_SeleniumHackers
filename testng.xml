@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-
 <suite name="Suite">
 
-	<test thread-count="2" name="Test">
+	 <test name="ChromeTest">
+  	<parameter name="browser" value="CHROME"></parameter>
+    <classes>
+      <class name="testRunner.testExecution">
 
-	<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="testrunner.TestRunner"/>
-		</classes>
-	
+      </class>
+    
+    </classes>
+  </test>
 
-	</test> <!--
-	Test -->
-</suite> 
+</suite>

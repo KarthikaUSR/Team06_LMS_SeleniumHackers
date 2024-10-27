@@ -11,24 +11,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import comPages.LoginPage;
-import comUtils.ConfigReader;
-import comUtils.DriverManager;
+import comUtils.configReader;
+import comUtils.driverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+/*
 
 
 public class LoginSteps {
 	
 	
 	WebDriver driver;
-	ConfigReader configReader = new ConfigReader();
+	configReader configReader = new configReader();
 	WebDriverWait wait;
 	LoginPage loginPage;
 
 	public LoginSteps() {
-		driver = DriverManager.getDriver();
+		driver = driverManager.getDriver();
 		//signInPage = new SignInPage(driver);
 		loginPage = new LoginPage(driver);
 	}
@@ -79,4 +79,4 @@ public class LoginSteps {
 
 	}
 
-}
+}*/

@@ -17,14 +17,17 @@ import org.openqa.selenium.TakesScreenshot;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
-import comUtils.ConfigReader;
-import comUtils.DriverManager;
-
+import comUtils.configReader;
+import comUtils.driverManager;
+/*
 public class hooks {
-	@BeforeMethod
-	public void setUp(Scenario scenario) {
-		String browser = ConfigReader.getBrowser();
+	
+	@BeforeAll
+	
+	public static void setUp(Scenario scenario) {
+		String browser = configReader.getBrowser();
 		if (browser == null) {
 			browser = "chrome"; 
 		}
@@ -48,4 +51,4 @@ public class hooks {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}}}
-	}
+	}*/
