@@ -16,7 +16,7 @@
 
   <dependencies>
     
-	  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+ <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <!-- https://mvnrepository.com/artifact/com.asprise.ocr/java-ocr-api -->
 <!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
 <dependency>
@@ -91,14 +91,17 @@
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>
-    <version>3.0.0-beta2</version>
+    <version>2.23.1</version>
 </dependency>
+
+
 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-api</artifactId>
-    <version>3.0.0-beta2</version>
+    <version>2.23.1</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
@@ -134,12 +137,6 @@
     <artifactId>allure-selenide</artifactId>
     <version>2.29.0</version>
 </dependency>
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.34</version>
-    <scope>provided</scope>
- </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
 <dependency>
@@ -147,6 +144,32 @@
     <artifactId>allure-cucumber7-jvm</artifactId>
     <version>2.29.0</version>
 </dependency>
+
+
+    
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>7.15.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.34</version>
+    <scope>provided</scope>
+ </dependency>
+
+
 
   </dependencies>
  

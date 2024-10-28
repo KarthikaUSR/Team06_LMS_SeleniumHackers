@@ -6,11 +6,12 @@ import org.testng.Assert;
 
 import comPages.Loginpage;
 import comUtils.DriverFactory;
-import comUtils.ExcelReader;
+
+import comUtils.ExcelReader_Login;
 import io.cucumber.java.en.*;
 
 public class LoginWithBkgrd {
-	private ExcelReader excelnew=new ExcelReader();
+	private ExcelReader_Login excelnew=new ExcelReader_Login();
 	private Loginpage loginPage = new Loginpage(DriverFactory.getDriver());
 	@Given("Admin is in login Page")
 	public void admin_is_in_login_page() {
@@ -25,6 +26,7 @@ public class LoginWithBkgrd {
 		String username=excelnew.getCellData(1, 0);;
 		String password=excelnew.getCellData(1, 1);
 		loginPage.Enter_username_password(username, password);
+		loginPage.clcik_login();
 	}
 	 @When("Admin enter invalid credentials  and clicks login button")
 	 public void admin_with_invalid() {
@@ -32,12 +34,21 @@ public class LoginWithBkgrd {
 			String password=excelnew.getCellData(2, 1);
 			System.out.println(username+" "+password);
 			loginPage.Enter_username_password(username, password); 
+			loginPage.clcik_login();
 	 }
 	 @Then("Error message please check Adminname\\/password")
 	 public void error_message_admin_pwd() {
-		String ExpectedMessage="Invalid username and password Please try again"; 
+		 
+		String ExpectedMessage="Invalid username and password Please try again";
+		try {
 		String Actualmsg=loginPage.error_message();
 		Assert.assertEquals(ExpectedMessage, Actualmsg);
+		
+		}catch (Exception e) {
+			System.out.println(e.getCause());
+			Assert.assertTrue(false);
+		}
+		
 	 }
 
 	@Then("Admin should land on dashboard page \\( centre of the page will be empty , menu bar is present).")
@@ -50,6 +61,7 @@ public class LoginWithBkgrd {
 		String password=excelnew.getCellData(4, 1);
 		System.out.println(username+" "+password);
 		loginPage.Enter_username_password(username, password);
+		loginPage.clcik_login();
 	}
 	@When("Admin enter value only in Adminname and clicks login button") 
 	public void only_adm() {
@@ -57,12 +69,15 @@ public class LoginWithBkgrd {
 		String password="";
 		System.out.println(username+" "+password);
 		loginPage.Enter_username_password(username, password);
-	}
+		loginPage.clcik_login();
+	
+		}
 	@When("Admin enter valid credentials  and clicks login button through keyboard")
 	public void enterValidCredentialsUsingKeyboard() {
 		String username=excelnew.getCellData(1, 0);
 		String password=excelnew.getCellData(1, 1);
 		loginPage.EnterThroughKeyboardnLogin(username, password);
+		loginPage.clcik_login();
 	}
 	@Then("Admin should land on dashboard page")
 	public void navigated_dassboard() {
@@ -73,5 +88,6 @@ public class LoginWithBkgrd {
 		String username=excelnew.getCellData(1, 0);
 		String password=excelnew.getCellData(1, 1);
 		loginPage.ClickThroughMouse(username, password);
+		loginPage.clcik_login();
 	}
 }
