@@ -3,6 +3,7 @@ package comPages;
 
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import comUtils.driverManager;
 import comUtils.excelReader;
@@ -33,6 +36,7 @@ public class batchModule {
 	
 
 	By batchButton=By.xpath("//*[@class='ng-star-inserted']/button[2]");
+	By classButton=By.xpath("//*[@routerlink='/session']");
 	By pageName=By.xpath("//*[@class='ng-star-inserted']/button[2]/span[1]");
 	By batchLabel=By.xpath("//*[@class='mat-card mat-focus-indicator']/mat-card-title/div[1]");
 	By B_Delete = By.xpath("//*[@class='mat-card-title']/div[2]/div/button");
@@ -237,7 +241,7 @@ public class batchModule {
    	By Searchbatch=By.xpath("//*[@id='filterGlobal']");
    	By reacordtxt=By.xpath("//*[@class='p-datatable-tbody']/tr[1]/td[2]");
    	
-   	By SuccessMSg=By.xpath("//*[contains(@class,'p-toast-summary ng-tns-c91')]");
+   	By SuccessMSg=By.xpath("//*[contains(@class,'p-toast-message-content ng-tns-c91')]");
  	By SuccessMSgclose=By.xpath("//*[contains(@class,'p-toast-icon-close-icon pi pi-times na-†ns-c91')]");
  	By Session =By.xpath("//*[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']");
  	
@@ -342,18 +346,36 @@ public class batchModule {
    			{
    				System.out.println("Record completed");
    			}
-	   /*WebElement SessionChk=comMethod.elementToBeClickable(Session);
-	   JavascriptExecutor js = (JavascriptExecutor) driver;
+   		String Succes_msg=handlealert();
 	   
-	   js.executeScript("arguments[0].click();", SessionChk);*/
-	   
-	  // WebElement batch_Button=comMethod.presenceOfElementLocated(batchButton);
-	   //batch_Button.click();
-	    WebElement Succesmsg=comMethod.presenceOfElementLocated(SuccessMSg);
-    	String Succes_msg=Succesmsg.getText();
   	   return Succes_msg;
 		
 	}
+   	
+   	public String handlealert()
+   	{
+   		By toastLocator = By.cssSelector("div.p-toast-message-content[role='alert']");
+
+        // Wait for the toast to appear
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement toastElement = wait.until(ExpectedConditions.visibilityOfElementLocated(toastLocator));
+
+        // Retrieve and print the toast message text
+        String toastMessage = toastElement.getText();
+        System.out.println("Toast Message: " + toastMessage);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(toastLocator));
+		return toastMessage;
+   	}
+   	
+   	
+   	public  void classtabclick()
+   	{
+   		
+   	 WebElement class_Button=comMethod.elementToBeClickable(classButton);
+   	 class_Button.click();
+   		
+   		
+   	}
    	
    	
    	
