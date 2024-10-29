@@ -13,12 +13,13 @@ public class testExecution {
 		
 	//@RunWith(Cucumber.class)
 	@CucumberOptions(
-			features = {"src/test/resources/featureFiles/4programAdd.feature"},
+			features = {"src/test/resources/featureFiles/5programNewAdd.feature"},
 			glue = {"stepDefinition","appHooks"},
 			monochrome = true,
 
 			//tags="@ManageProgramSortingProgram",
 			//"@BatchPageNavigation",
+			
 //			"@classPageValidation1",
 			//"@classPageValidation",
 			plugin = {"pretty",
@@ -26,7 +27,7 @@ public class testExecution {
 			}
 			
 			)
-	//public class mytestrunner {
+
 	public class TestRunner extends AbstractTestNGCucumberTests{
 
 	}

@@ -1,13 +1,9 @@
 package stepDefinition;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.testng.Assert;
 
 import comPages.programPage;
@@ -27,7 +23,6 @@ public class programMenu {
 		programpage = new programPage(driverManager.getDriver()); // Get the driver from driverManager
    
 	}
-	
 	
 	
 	/*  Scenario: Verify any broken links on program page  
@@ -51,35 +46,16 @@ public class programMenu {
 	
 	
 	//Verify other modules name displayed in menu bar
-/*	
+	
 	@Then("Admin should see the module names as in order {string}")
 	public void admin_should_see_the_module_names_as_in_order(String expectedModules) {
-		
-		 // Split the expected module names (coming from the feature file)
-        String[] expectedModuleArray = expectedModules.split(" ");
-
-        // Find all the modules in the navigation bar
-        List<WebElement> moduleElements = driver.findElements(By.xpath("//nav//a"));  // Assuming they are within <nav> and are links <a>
-
-        // Extract the text of each module element
-        List<String> actualModules = new ArrayList<>();
-        for (WebElement module : moduleElements) {
-            actualModules.add(module.getText().trim());
-        }
-
-        // Verify if the actual module names match the expected module names
-        for (int i = 0; i < expectedModuleArray.length; i++) {
-            if (!actualModules.get(i).equals(expectedModuleArray[i])) {
-                throw new AssertionError("Module name mismatch: expected " + expectedModuleArray[i] + " but found " + actualModules.get(i));
-            }
-        }
+		 
+        programpage.verifyModuleNamesInOrder(expectedModules);
         
-        // If everything is in order, print success message
-        System.out.println("All module names are displayed in correct order: " + String.join(", ", expectedModuleArray));
     }
 		
 	
-*/
+
    // Scenario: Verify Logout displayed in menu bar
 	
 	
@@ -102,16 +78,8 @@ public class programMenu {
         String actual= programpage.getSubMenu(expectedSubMenu)	;
         System.out.println(actual);
          Assert.assertEquals(actual, expectedSubMenu, "SubMenu doesnot match.");
-
-//		WebElement subMenuItem = driver.findElement(By.xpath("//button[contains(text(),'" + expectedSubMenu + "')]"));
-//
-//		// Assert that the sub-menu item is displayed
-//		Assert.assertEquals("Sub-menu item '" + expectedSubMenu + "' is not displayed under the Program menu.",
-//				subMenuItem.isDisplayed());
-//
-//		// Print success message if the sub-menu item is displayed
-//		System.out.println("Sub-menu item '" + expectedSubMenu + "' is displayed under the Program menu.");
 		LoggerLoad.info("Admin able to see submenu");
+		
 
     }
 	
