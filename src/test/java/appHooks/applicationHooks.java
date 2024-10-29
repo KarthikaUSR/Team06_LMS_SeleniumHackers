@@ -1,5 +1,9 @@
 package appHooks;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +14,7 @@ import io.cucumber.java.Scenario;
 
 public class applicationHooks {
 	//private WebDriver driver;
+	@BeforeMethod
 	@Before(order=0)
     public  void driverSetUp() {
         // Use the singleton driver
@@ -18,6 +23,8 @@ public class applicationHooks {
        
     }
 	// Capture screenshot if scenario fails
+	
+	@AfterMethod
 	@After(order=1)
     public void screenShot_tearDown(Scenario scenario) {
         WebDriver driver = driverManager.getDriver();

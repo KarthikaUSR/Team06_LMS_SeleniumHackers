@@ -1,5 +1,9 @@
-package stepDefinition;
+package appHooks;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +30,8 @@ public class Hooks {
 	public WebDriver driver;
 	private Loginpage loginPage = new Loginpage(DriverFactory.getDriver());
 	private ExcelReader_Login excelnew=new ExcelReader_Login();
-	    @Before("@runBeforeHook")
+		@BeforeMethod
+		@Before("@runBeforeHook")
 	    public void setUp() {
 	    	loginPage.launchBrowser();
 	    	DriverFactory.getDriver()
@@ -36,7 +41,8 @@ public class Hooks {
 			loginPage.Enter_username_password(username, password);
 			loginPage.clcik_login();
 	    }
-	    @After("@runAfterHook")
+		@AfterMethod
+		@After("@runAfterHook")
 		public void AfterScenario(Scenario scenario) throws IOException {
 			if(scenario.isFailed()) {
 				byte[] screenshot=((TakesScreenshot)DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);

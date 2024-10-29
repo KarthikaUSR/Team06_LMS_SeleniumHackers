@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import comPages.programPage;
-import comUtils.LoggerLoad;
+import comUtils.loggerLoad;
 import comUtils.driverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -14,7 +14,7 @@ import org.testng.Assert;
 
 import comPages.Program;
 import comPages.programPage;
-import comUtils.LoggerLoad;
+import comUtils.loggerLoad;
 import comUtils.driverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,7 +37,7 @@ public class programPageValidation {
 		String actualHeading = programpage.getManageProgramHeading();
 		System.out.println(actualHeading);
 		Assert.assertEquals(actualHeading, expectedHeading, "Heading on Program page does not match expected.");
-		LoggerLoad.info("Admin able to see heading");
+		loggerLoad.info("Admin able to see heading");
 
 	}
 
@@ -55,7 +55,7 @@ public class programPageValidation {
 			Assert.assertNotNull("Program status is missing", program.getStatus());
 		}
 
-		LoggerLoad.info("All programs have name, description, and status displayed.");
+		loggerLoad.info("All programs have name, description, and status displayed.");
 	}
 
 	// Scenario: Verify the Multiple Delete button state
@@ -65,7 +65,7 @@ public class programPageValidation {
 
 		WebElement deleteButton = programpage.getDeleteButton();
 		Assert.assertFalse(deleteButton.isEnabled());
-		LoggerLoad.info("Delete button is confirmed to be disabled.");
+		loggerLoad.info("Delete button is confirmed to be disabled.");
 	}
 
 	// Scenario: Verify the Search button
@@ -75,7 +75,7 @@ public class programPageValidation {
 		WebElement searchBar = programpage.getSearchBar();
 		Assert.assertTrue(searchBar.isDisplayed());
 		Assert.assertEquals("Search...", expectedPlaceholder, searchBar.getAttribute("placeholder"));
-		LoggerLoad.info("Search bar is displayed with correct placeholder text.");
+		loggerLoad.info("Search bar is displayed with correct placeholder text.");
 
 	}
 
@@ -87,7 +87,7 @@ public class programPageValidation {
 		List<String> expectedHeaders = Arrays.asList("Program Name", "Program Description", "Program Status",
 				"Edit/Delete");
 		List<String> actualHeaders = programpage.getColumnHeaders();
-		LoggerLoad.info("Verifying that the data table has the correct headers: " + expectedHeaders);
+		loggerLoad.info("Verifying that the data table has the correct headers: " + expectedHeaders);
 		Assert.assertEquals(actualHeaders, expectedHeaders, "Column headers do not match expected values.");
 	}
 
@@ -99,7 +99,7 @@ public class programPageValidation {
 
 		Assert.assertFalse(programpage.isHeaderCheckboxChecked(),
 				"Checkbox beside Program Name column should be unchecked");
-		LoggerLoad.info("Checkbox beside Program Name column header is unchecked by default.");
+		loggerLoad.info("Checkbox beside Program Name column header is unchecked by default.");
 	}
 
 	// Scenario: Verify checkboxes default state beside each Program names in the
@@ -110,7 +110,7 @@ public class programPageValidation {
 			Assert.assertFalse(checkbox.isSelected(), "Row checkbox should be unchecked by default.");
 		}
 	
-		LoggerLoad.info("All row checkboxes are unchecked by default.");
+		loggerLoad.info("All row checkboxes are unchecked by default.");
 
 	}
 
@@ -119,7 +119,7 @@ public class programPageValidation {
 	public void admin_should_see_the_sort_arrow_icon_beside_to_each_column_header_except_edit_and_delete() {
 
 		int actualSortIconsCount = programpage.getSortIcons().size();
-		LoggerLoad.info("Verifying sortable columns have the required number of sort icons. Expected: 3, Actual: "
+		loggerLoad.info("Verifying sortable columns have the required number of sort icons. Expected: 3, Actual: "
 				+ actualSortIconsCount);
 		Assert.assertEquals(actualSortIconsCount, 3, "Not all sortable columns have a sort icon.");
 
@@ -135,7 +135,7 @@ public class programPageValidation {
 			Assert.assertTrue(icons[0].isDisplayed(), "Edit icon is missing.");
 			Assert.assertTrue(icons[1].isDisplayed(), "Delete icon is missing.");
 		}
-		LoggerLoad.info("Edit and Delete icons are present on each row.");
+		loggerLoad.info("Edit and Delete icons are present on each row.");
 	}
 
 	// Scenario: Verify pagination icons below data table in manage program
@@ -147,7 +147,7 @@ public class programPageValidation {
 				programpage.getPaginationText().contains("Showing")
 						&& programpage.getPaginationText().contains("entries"),
 				"Pagination info text is missing or incorrect.");
-		LoggerLoad.info("Pagination text is correctly displayed: " + paginationText);
+		loggerLoad.info("Pagination text is correctly displayed: " + paginationText);
 
 	}
 
@@ -161,7 +161,7 @@ public class programPageValidation {
 		Assert.assertTrue(programpage.getFooterMessage().contains("In total there are"),
 				"Footer message is missing or incorrect.");
 
-		LoggerLoad.info("Footer message is correctly displayed: " + actualFooterText);
+		loggerLoad.info("Footer message is correctly displayed: " + actualFooterText);
 
 	}
 }

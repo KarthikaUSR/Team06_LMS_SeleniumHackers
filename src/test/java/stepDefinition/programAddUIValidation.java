@@ -52,17 +52,16 @@ public class programAddUIValidation {
 
 	@Then("Admin should see red '*' mark beside mandatory field {string}")
 	public void admin_should_see_red_mark_beside_mandatory_field(String fieldName) {
-		programpage.isMandatoryFieldMarked(fieldName);
+	programpage.isMandatoryFieldMarked(fieldName);
+		
 	}
-	
-
-	
 	
 	// Scenario: Verify enter program name	
 	
 	@Given("Admin is on program details form")
     public void admin_is_on_program_details_form() {
         // programpage.isPageDisplayed();
+		programpage.clickCloseButton();
 		programpage.programMenuclick();
 		programpage.ClickSubMenu();
 
@@ -78,13 +77,14 @@ public class programAddUIValidation {
         String actualName = programpage.getProgramName();
         System.out.println(actualName);
         Assert.assertEquals( expectedName, actualName, "Entered program name should match");
-         
+        programpage.clickCloseButton();
     }	  
     
     //Scenario: Verify empty form submission						
     
     @When("Admin clicks save button without entering mandatory fields")
     public void admin_clicks_save_without_entering_mandatory_fields() {
+    	
         programpage.clickSave();
     }
 

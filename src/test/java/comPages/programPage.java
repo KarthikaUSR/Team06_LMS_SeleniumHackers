@@ -10,15 +10,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import comUtils.LoggerLoad;
+import comUtils.loggerLoad;
+import io.github.bonigarcia.wdm.online.HttpClient;
 import comUtils.commonFunctions;
 import comUtils.excelReader;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import java.io.IOException;
+
 import java.util.stream.Collectors;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -37,6 +39,7 @@ public class programPage {
 	By pageName = By.xpath("//*[@class='ng-star-inserted']/button[1]/span[1]");
 	By manageProgram = By.xpath("//div[normalize-space()='Manage Program']");
 	By programHeading = By.xpath("//span[normalize-space()='LMS - Learning Management System']");
+	By Login_btn=By.xpath("//span[text()='Login']");
 
 	// Table headers
 	By columnHeaders = By.xpath("//table//th");
@@ -110,6 +113,7 @@ public class programPage {
 	public boolean isMandatoryFieldMarked(String fieldName) {
 		WebElement fieldLabel = driver
 				.findElement(By.xpath(" //label[@for='" + fieldName + "']//span[contains(text(),'*')]"));
+		System.out.println(fieldLabel);
 		return fieldLabel.isDisplayed();
 	}
 
@@ -278,7 +282,7 @@ public class programPage {
 	By cancel = By.xpath("//button[@label='Cancel']");
 
 	By closeButton = By.xpath("//*[@header='Batch Details']//button[@type='button']");
-
+//Error
 	By toatsmessage = By.xpath("//div[contains(@class, 'p-toast-summary') and text()='Successful']");
 
 	By toastCheckMessage = By
@@ -463,12 +467,12 @@ public class programPage {
 					WebElement name = driver.findElement(programNameTextBox);
 					name.click();
 					name.sendKeys(record.getName());
-					LoggerLoad.info("Name from the excel");
+					loggerLoad.info("Name from the excel");
 
 					WebElement prg_Desc = driver.findElement(programdescriptionTextbox);
 					prg_Desc.click();
 					prg_Desc.sendKeys(record.getDescription());
-					LoggerLoad.info("Description from excel");
+					loggerLoad.info("Description from excel");
 					// comMethod.elementToBeClickable
 					WebElement prgstatus_Active = driver.findElement(activeStatus);
 					prgstatus_Active.click();
@@ -507,8 +511,15 @@ public class programPage {
 	// tr[2]/..//div[@class='p-checkbox p-component']
 	By deleteButtonLocator = By.xpath("//tr[1]//button[contains(@id, 'deleteProgram')]"); // First delete button
 	By confirmYesButton = By.xpath("//span[contains(text(),'Yes')]"); // Confirm delete button
+	By confirmNoButton = By.xpath("//span[contains(text(),'No')]"); // Confirm delete button
+	By confirmationFormElement=By.xpath("/div[@class='ng-trigger ng-trigger-animation ng-tns-c204-7 p-dialog p-confirm-dialog p-component ng-star-inserted']");
+
+	By closeDelete=By.xpath("//div[@class='p-dialog-header-icons ng-tns-c204-7']/button[@type='button']");
+	
 	By searchBoxLocator = By.xpath("//input[@placeholder='Search...']"); // Search box locator
 	By noResultsMessage = By.xpath("//div[text()='No results found']"); // No results message locator
+	By batchButton=By.xpath("//*[@class='ng-star-inserted']/button[2]");
+
 
 	public List<WebElement[]> getDeleteIcons() {
 		List<WebElement[]> icons = new ArrayList<>();
@@ -532,6 +543,7 @@ public class programPage {
 	public String getFirstProgramName() {
 
 		clickanywhere();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement programNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(programNameLocator));
 		System.out.println(programNameElement.getText());
 		return programNameElement.getText();
@@ -562,6 +574,28 @@ public class programPage {
 		return Succes_msg;
 
 	}
+	
+	public void confirmNoDelete() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(confirmNoButton));
+		button.click();
+		System.out.println("Clicked No");
+//		String Succes_msg = handlealertdelete();
+//
+//		return Succes_msg;
+
+	}
+	public boolean isConfirmationFormVisible() {
+		
+	    try {
+	        // Check visibility of the form element
+          return driver.findElement(confirmationFormElement).isDisplayed();
+	    } catch (NoSuchElementException e) {
+	        return false; // Returns false if the element is not found (i.e., it's gone)
+	    }
+	}
+
 
 	public String handlealertdelete() {
 		By toastLocator = By.cssSelector("div.p-toast-message-content[role='alert']");
@@ -582,9 +616,10 @@ public class programPage {
 	}
 
 	public void closePopDeleted() {
-		By closeconfirm = By.xpath("//span[@class='pi pi-times ng-tns-c204-7']");
-		// span[@class='p-toast-icon-close-icon pi pi-times ng-tns-c91-10']
-		WebElement closeConfirm = driver.findElement(closeconfirm);
+	
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebElement closeConfirm = driver.findElement(By.xpath("//span[contains(@class, 'pi pi-times')]"));    
+		//WebElement closeConfirm = driver.findElement(By.xpath("//*[@class='pi pi-times ng-tns-c204-22']"));
 		closeConfirm.click();
 	}
 	// Method to search for a program
@@ -599,10 +634,17 @@ public class programPage {
 		// searchField.submit();
 	}
 
+	public void searchClear() {
+		driver.findElement(searchTab).clear();
+		driver.findElement(batchButton).click();
+		
+
+	}
 	// Method to verify that no results are displayed
 	public boolean isNoResultsMessageDisplayed() {
 		By zero = By.xpath("//span[text()='Showing 0 to 0 of 0 entries']");
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(zero)).isDisplayed();
 	}
-
+	
+	
 }

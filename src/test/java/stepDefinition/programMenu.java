@@ -7,9 +7,10 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import comPages.programPage;
-import comUtils.LoggerLoad;
+import comUtils.loggerLoad;
 import comUtils.driverManager;
 import io.cucumber.java.en.Then;
+import io.github.bonigarcia.wdm.online.HttpClient;
 
 public class programMenu {
 
@@ -24,15 +25,7 @@ public class programMenu {
    
 	}
 	
-	
-	/*  Scenario: Verify any broken links on program page  
 
-	@Then("Admin should not have any broken links for Program module")
-	public void admin_should_not_have_any_broken_links_for_program_module() {
-		boolean noBrokenLinks = programpage.checkForBrokenLinks();
-	    Assert.assertTrue(noBrokenLinks, "There are broken links on the Program module page.");
-	}
-*/
 	
 	
 	//Scenario: Verify heading in menu bar
@@ -66,7 +59,7 @@ public class programMenu {
         System.out.println(actual);
 
 		Assert.assertEquals(actual, "Logout");
-		LoggerLoad.info("Admin able to see Logout");
+		loggerLoad.info("Admin able to see Logout");
 	}
 
 	
@@ -78,9 +71,31 @@ public class programMenu {
         String actual= programpage.getSubMenu(expectedSubMenu)	;
         System.out.println(actual);
          Assert.assertEquals(actual, expectedSubMenu, "SubMenu doesnot match.");
-		LoggerLoad.info("Admin able to see submenu");
+         loggerLoad.info("Admin able to see submenu");
 		
 
     }
+	
+//  Scenario: Verify any broken links on program page  
+
+//	@Then("Admin should recieve {int} page not found error")
+//	public void admin_should_recieve_page_not_found_error(Integer int1) throws IOException, InterruptedException  {
+//		HttpClient client = HttpClient.newHttpClient();
+//
+//        // Create a HttpRequest with HEAD method
+//        HttpRequest request = HttpRequest.newBuilder()
+//            .uri(URI.create("https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com"))
+//            .method("HEAD", HttpRequest.BodyPublishers.noBody()) // Replacing URL usage
+//            .build();
+//
+//        // Send the request and receive response
+//        HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding()); // No body expected
+//
+//        // Get response code
+//        int r = response.statusCode();
+//        System.out.println("Http code: " + r);
+//       // Assert.assertEquals(int1, r);
+//		
+//		}
 	
 }

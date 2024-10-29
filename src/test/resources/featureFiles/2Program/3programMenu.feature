@@ -15,7 +15,7 @@ Scenario: Verify that Admin is able to navigate to Program module
 
   Scenario: Verify any broken links on program page  
   
-  #   Then Admin should not have any broken links for Program module-- Not in scope as discuused with team
+  #  Then Admin should not have any broken links for Program module
      
     Scenario: Verify heading in menu bar
       Then Admin should see the heading "LMS - Learning Management System"

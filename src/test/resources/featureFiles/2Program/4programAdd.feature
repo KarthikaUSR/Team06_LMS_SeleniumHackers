@@ -25,9 +25,9 @@ Feature:  Program - Add New Program
 	
 	
 	  Scenario: Verify empty form submission		
- #	Given  Admin is on program details form																				
-#		When   Admin clicks save button without entering mandatory fields
-	#	Then   Admin gets message 'Name is required'			
+ 	Given  Admin is on program details form																				
+	When   Admin clicks save button without entering mandatory fields
+		Then   Admin gets message 'Name is required'			
 																			
 	Scenario: Verify cancel button	
 	 Given Admin is on program details form																				

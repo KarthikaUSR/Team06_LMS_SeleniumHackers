@@ -3,15 +3,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;	
 
 	@Data
-	@AllArgsConstructor
+	//@AllArgsConstructor
 	public class programRecords {
 		
 		
 		private String name;
 		private String description;
 		
+
 		public programRecords(String name, String description) {
-			super();
 			this.name = name;
 			this.description = description;
 		}
