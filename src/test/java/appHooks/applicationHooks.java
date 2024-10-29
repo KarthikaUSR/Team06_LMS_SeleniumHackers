@@ -52,12 +52,5 @@ public class applicationHooks {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

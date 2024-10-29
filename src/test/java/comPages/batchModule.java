@@ -7,9 +7,10 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,7 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import comUtils.driverManager;
 import comUtils.excelReader;
 import comUtils.commonFunctions;
-
+import comUtils.configReader;
 import comUtils.tableUIvalidation;
 
 import pojo.batchRecords;
@@ -31,6 +32,11 @@ public class batchModule {
 	public commonFunctions comMethod ;
 	public tableUIvalidation tableUI;
 	public excelReader readbatch=new excelReader();
+	 private static configReader cr;
+	 private static Properties prop;
+	   
+	   
+
 	
 
 	By batchButton=By.xpath("//*[@class='ng-star-inserted']/button[2]");
@@ -49,10 +55,35 @@ public class batchModule {
 	By closebatch = By.xpath
 			("//*[@class='ng-tns-c168-6 p-dialog-header-icon p-dialog-header-close p-link p-ripple ng-star-inserted']");
 	By Addbatchheader= By.xpath("//*[@id='pr_id_2-label']");
-			
-					
-
-			
+	
+	///Add batch locATORS
+   	By batchprogramName= By.xpath("//*[@role='button']");
+   	By batchprogmatch=By.xpath("//*[@id='programName']/div/input");
+   	By batchprogdropdown=By.xpath("//*[@id='programName']/div/div[2]/span");
+   	By batchproglist=By.xpath("//*[contains(@class,'p-dropdown-items ng-tns-c171')]/p-dropdownitem/li/span");
+   	//*[contains(@class,'p-toast-summary ng-tns-c91')]
+   	
+   	By batchBName1= By.xpath("//*[@id='batchProg']");
+   	By batchBName2= By.xpath("//*[@pattern='^[0-9]{0,5}$']");  			
+   	By batchDesc= By.xpath("//*[@id='batchDescription']");
+   	By batchstatusActive= By.xpath("//*[@ng-reflect-input-id='ACTIVE']");
+	By batchstatusInavtive= By.xpath("//*[@ng-reflect-input-id='INACTIVE']");
+   	By batchNoOfClass= By.xpath("//*[@id='batchNoOfClasses']");
+   	By batchCancelbutton= By.xpath("//*[@label='Cancel']']");
+   	By batchSavebutton= By.xpath("//*[@label='Save']");
+   	By BatchTxt=By.xpath("//*[text()='Batch']");
+   	By Searchbatch=By.xpath("//*[@id='filterGlobal']");
+   	By reacordtxt=By.xpath("//*[@class='p-datatable-tbody']/tr[1]/td[2]");
+   	
+   	By SuccessMSg=By.xpath("//*[contains(@class,'p-toast-message-content ng-tns-c91')]");
+ 	By SuccessMSgclose=By.xpath("//*[contains(@class,'p-toast-icon-close-icon pi pi-times na-†ns-c91')]");
+ 	By Session =By.xpath("//*[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']");
+ 	
+  // /Add batch locATORS close
+ 	//search
+ 	By SearchTxt=By.xpath("//*[@id='filterGlobal']");
+	By SearchtxtinGrid=By.xpath("//*[@class='p-datatable-tbody']/tr/td[2]");
+ 	
 	
 	
 	//constructor
@@ -60,6 +91,8 @@ public class batchModule {
         this.driver = driver;
         this.comMethod = new commonFunctions(driverManager.getDriver(), 20);
         this.tableUI= new tableUIvalidation(driverManager.getDriver());
+       
+
 		}
 
 	public void landbatchpage() {
@@ -219,32 +252,7 @@ public class batchModule {
 		return name;
 			
 		}
- 
-///Add batch locATORS
-   	By batchprogramName= By.xpath("//*[@role='button']");
-   	By batchprogmatch=By.xpath("//*[@id='programName']/div/input");
-   	By batchprogdropdown=By.xpath("//*[@id='programName']/div/div[2]/span");
-   	By batchproglist=By.xpath("//*[contains(@class,'p-dropdown-items ng-tns-c171')]/p-dropdownitem/li/span");
-   	//*[contains(@class,'p-toast-summary ng-tns-c91')]
-   	
-   	By batchBName1= By.xpath("//*[@id='batchProg']");
-   	By batchBName2= By.xpath("//*[@pattern='^[0-9]{0,5}$']");  			
-   	By batchDesc= By.xpath("//*[@id='batchDescription']");
-   	By batchstatusActive= By.xpath("//*[@ng-reflect-input-id='ACTIVE']");
-	By batchstatusInavtive= By.xpath("//*[@ng-reflect-input-id='INACTIVE']");
-   	By batchNoOfClass= By.xpath("//*[@id='batchNoOfClasses']");
-   	By batchCancelbutton= By.xpath("//*[@label='Cancel']']");
-   	By batchSavebutton= By.xpath("//*[@label='Save']");
-   	By BatchTxt=By.xpath("//*[text()='Batch']");
-   	By Searchbatch=By.xpath("//*[@id='filterGlobal']");
-   	By reacordtxt=By.xpath("//*[@class='p-datatable-tbody']/tr[1]/td[2]");
-   	
-   	By SuccessMSg=By.xpath("//*[contains(@class,'p-toast-message-content ng-tns-c91')]");
- 	By SuccessMSgclose=By.xpath("//*[contains(@class,'p-toast-icon-close-icon pi pi-times na-†ns-c91')]");
- 	By Session =By.xpath("//*[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']");
- 	
-  // /Add batch locATORS close 	
-    // manual add batch
+ // manual add batch
     
     
 
@@ -374,6 +382,50 @@ public class batchModule {
    		
    		
    	}
+   	
+   	public void searchtext()
+   	{cr = new configReader();
+    prop = cr.init_prop();
+   	   JavascriptExecutor js = (JavascriptExecutor) driver;
+       js.executeScript("document.elementFromPoint(0, 0).click();");
+   		WebElement Searchtext=comMethod.presenceOfElementLocated(SearchTxt);
+   		Searchtext.click();
+   		Searchtext.sendKeys(prop.getProperty("batchsearchtext"));
+   	}
+   	public boolean searchtextvalidation()
+   	{
+   		
+   		cr = new configReader();
+	    prop = cr.init_prop();
+   		List<WebElement> searchingrid=comMethod.visibilityOfAllElementsLocated(SearchtxtinGrid);
+		    
+   		    if (searchingrid == null || searchingrid.isEmpty()) {
+   		        System.out.println("Grid is null or empty");
+   		        return false;
+   		    }
+          String expectedText = prop.getProperty("batchsearchtext");
+   		    if (expectedText == null) {
+   		        System.out.println("Property 'batchsearchtext' is null");
+   		        return false;
+   		    }
+   		    
+   		    for (WebElement e : searchingrid) {
+   		        String text = e.getText();
+   		        
+   		        
+   		        if (!text.equalsIgnoreCase(expectedText)) {
+   		            System.out.println("Searched text  failed ");
+   		            return false;
+   		        }
+   		    }
+   		    return true;
+   		}
+   		
+   		
+   		
+   		
+   		
+   	
    	
    	
    	
