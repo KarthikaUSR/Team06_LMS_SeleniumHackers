@@ -13,6 +13,7 @@ public class batchRecords {
 	private String batchName;
 	private String description;
     private String noOfClass;
+
     
 	public batchRecords(String programName, String batchName, String description, String noOfClass) {
 		super();
@@ -25,3 +26,4 @@ public class batchRecords {
     
 
 }
+
