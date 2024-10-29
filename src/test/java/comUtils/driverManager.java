@@ -1,4 +1,6 @@
 package comUtils;
+
+
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import appHooks.applicationHooks;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class driverManager {
 
 	   private static final Logger log = LogManager.getLogger(driverManager.class);
@@ -66,3 +69,4 @@ public class driverManager {
 
 
 }
+

@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class configReader {
+	
+	
 	private Properties prop;
 
 	public Properties init_prop()
@@ -25,6 +27,8 @@ public class configReader {
 		return prop;
 		
 		
+
 	}
 
 }
+
