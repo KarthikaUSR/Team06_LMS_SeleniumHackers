@@ -1,0 +1,82 @@
+[INFO ] 2024-10-28 21:32:46.680 [main] driverManager - logged in
+[INFO ] 2024-10-28 21:32:46.688 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 21:32:46.688 [main] classPageValidation - Class Page displayed
+[INFO ] 2024-10-28 21:32:47.453 [main] classPageValidation - Admin able to see Class heading
+[INFO ] 2024-10-28 21:32:47.489 [main] classPageValidation - Search bar in class page is displayed with correct placeholder text.
+[INFO ] 2024-10-28 21:32:47.621 [main] classPageValidation - print pagination text: true
+[INFO ] 2024-10-28 21:32:47.751 [main] classPageValidation - Sort icon is visible on the fields : true
+[INFO ] 2024-10-28 21:32:47.814 [main] classPageValidation - Edit and Delete icons are present on each row.
+[INFO ] 2024-10-28 21:32:47.837 [main] classPageValidation - Total number of classes:In total there are 12 classes.
+[INFO ] 2024-10-28 21:32:47.948 [main] addNewClass - DialogBox is opened
+[INFO ] 2024-10-28 21:32:47.971 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:47.988 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.000 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.006 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.015 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.021 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.030 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.037 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.048 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.055 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.064 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.072 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.082 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.089 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.096 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.105 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.116 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.124 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.134 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.141 [main] addNewClass - All the input form fields are Empty
+[INFO ] 2024-10-28 21:32:48.161 [main] addNewClass - DialogBox in cancel button is visible
+[INFO ] 2024-10-28 21:32:48.186 [main] addNewClass - DialogBox in save button is visible
+[INFO ] 2024-10-28 21:32:48.204 [main] addNewClass - DialogBox in close icon is visible
+[INFO ] 2024-10-28 21:32:48.230 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.230 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.240 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.240 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.249 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.249 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.257 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.257 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.265 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.265 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.273 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.274 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.284 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.284 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.294 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.294 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.301 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.301 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.308 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.308 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.315 [main] addNewClass - Form field text found: []
+[WARN ] 2024-10-28 21:32:48.315 [main] addNewClass - Warning: An empty field label was found. Check the locator or HTML structure.
+[INFO ] 2024-10-28 21:32:48.315 [main] addNewClass - All expected form fields and their text boxes are displayed correctly in the class details window.
+[INFO ] 2024-10-28 21:34:33.880 [main] driverManager - logged in
+[INFO ] 2024-10-28 21:34:33.888 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 21:43:17.861 [main] driverManager - logged in
+[INFO ] 2024-10-28 21:43:17.869 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 21:43:17.870 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 21:57:51.320 [main] driverManager - logged in
+[INFO ] 2024-10-28 21:57:51.331 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 21:57:51.332 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 22:25:35.513 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:25:35.521 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:25:35.521 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 22:29:04.349 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:29:04.360 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:29:04.360 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 22:32:17.065 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:32:17.075 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:32:17.075 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 22:35:42.391 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:35:42.399 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:35:42.399 [main] manageProgramSortingProgram - Program Page displayed
+[INFO ] 2024-10-28 22:38:20.340 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:38:20.349 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:38:20.350 [main] manageProgramSearchBar - Program Page displayed
+[INFO ] 2024-10-28 22:42:35.812 [main] driverManager - logged in
+[INFO ] 2024-10-28 22:42:35.820 [main] driverManager - URL :https://lms-frontend-hackathon-oct24-173fe394c071.herokuapp.com/login
+[INFO ] 2024-10-28 22:42:35.820 [main] manageProgramSearchBar - Program Page displayed
